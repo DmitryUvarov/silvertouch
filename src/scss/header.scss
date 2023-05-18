@@ -286,14 +286,9 @@
   }
 
   &__arrow {
+    width: rem(15);
+    height: rem(15);
     transition: all 0.3s ease 0s;
-    &::before {
-      font-size: rem(6);
-
-      @media (max-width: $mobile) {
-        font-size: rem(10);
-      }
-    }
 
     @media (max-width: $mobile) {
       position: absolute;
@@ -301,6 +296,14 @@
       right: 0;
       width: 25px;
       height: 25px;
+    }
+
+    &::before {
+      font-size: rem(6);
+
+      @media (max-width: $mobile) {
+        font-size: rem(10);
+      }
     }
 
     &._spoller-active {
