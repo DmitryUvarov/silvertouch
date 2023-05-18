@@ -1,1 +1,17 @@
 // Заголовки, загальні БЕМ блоки та інше...
+
+.decor {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+
+  img {
+    max-width: 100%;
+  }
+}

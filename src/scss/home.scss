@@ -1,3 +1,95 @@
 //====================================================================================================
 
+.hero {
+  position: relative;
+  &__container {
+  }
+
+  &__body {
+    position: relative;
+
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__content {
+    position: relative;
+    right: 0;
+    z-index: 2;
+    padding-top: rem(184);
+
+    @include adaptiveValue("padding-top", 184, 65, 0, 1160, 767);
+    @include adaptiveValue("padding-top", 65, 81, 1, 767, 390);
+
+    @media (min-width: $mobile) {
+      position: absolute;
+    }
+  }
+
+  &__text {
+    font-family: "Montserrat";
+    font-weight: 600;
+    @include adaptiveValue("font-size", 52, 37);
+    line-height: 121.2%; /* 63/52 */
+    color: #000000;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 6);
+    }
+  }
+
+  &__button {
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+
+  &__images {
+    position: relative;
+    display: flex;
+    z-index: 1;
+
+    @media (max-width: $pc) {
+      margin: 0 rem(-15);
+    }
+  }
+
+  &__image {
+    pointer-events: none;
+    user-select: none;
+    img {
+      max-width: 100%;
+    }
+
+    &_big {
+      flex: 0 1 percent(600, 1160);
+
+      @media (max-width: $mobile) {
+        flex: 0 1 percent(270, 390);
+      }
+    }
+
+    &_small {
+      position: absolute;
+      width: percent(802, 1160);
+      padding-bottom: percent(303, 1160);
+
+      @include adaptiveValue("right", -142, 0, 0, 1440, 1160);
+      @include adaptiveValue("bottom", 45, -60);
+
+      @media (max-width: $mobile) {
+        padding-bottom: percent(115, 390);
+        width: percent(306, 390);
+        right: rem(-41);
+      }
+    }
+  }
+
+  &__decor {
+    @include adaptiveValue("top", 36, 108);
+  }
+}
+
 //====================================================================================================

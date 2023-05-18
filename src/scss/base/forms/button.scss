@@ -2,13 +2,38 @@
 // Сніппет (HTML): btn
 
 .button {
-	display: inline-flex;
-	padding: 0px 0px;
-	@media (any-hover: hover) {
-		&:hover {
-		}
-	}
-	&._fw {
-		width: 100%;
-	}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: rem(13) rem(30);
+  height: 47px;
+  background: #087065;
+  font-family: "Futura PT";
+  font-style: normal;
+  font-weight: 450;
+  font-size: rem(16);
+  line-height: 131.3%; /* 21/16 */
+  color: #ffffff;
+  min-width: rem(242);
+  transition: all 0.3s ease 0s;
+
+  &::after {
+    content: "\e901";
+    @extend %ic;
+    display: block;
+    font-size: rem(10);
+    transition: all 0.3s ease 0s;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background: #0c7e73;
+      &::after {
+        transform: translateX(10px);
+      }
+    }
+  }
+  &._fw {
+    width: 100%;
+  }
 }
