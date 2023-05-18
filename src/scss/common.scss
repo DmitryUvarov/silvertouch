@@ -15,3 +15,99 @@
     max-width: 100%;
   }
 }
+
+.title-block {
+  display: flex;
+  align-items: center;
+  column-gap: rem(60);
+
+  @media (max-width: $mobile) {
+    justify-content: space-between;
+    column-gap: rem(25);
+  }
+  &__title {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: rem(-30);
+      width: 1px;
+      height: rem(27);
+      background-color: #aaaaaa;
+      display: block;
+
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    font-family: "Futura PT";
+    font-weight: 450;
+    @include adaptiveValue("font-size", 16, 14);
+    line-height: 131.3%; /* 21/16 */
+    color: #aaaaaa;
+    display: flex;
+    align-items: center;
+    column-gap: rem(10);
+    transition: all 0.3s ease 0s;
+
+    @media (max-width: $mobile) {
+      column-gap: rem(20);
+    }
+
+    &::after {
+      content: "\e901";
+      @extend %ic;
+      color: #aaaaaa;
+      font-size: rem(11);
+      transition: all 0.3s ease 0s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #000;
+        &::after {
+          color: #000;
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}
+.title {
+  font-family: "Futura PT";
+  font-weight: 450;
+  @include adaptiveValue("font-size", 26, 22);
+  line-height: 126.9%; /* 33/26 */
+  color: #161616;
+}
+
+//========================================================================================================================================================
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: rem(12);
+  &__arrow {
+    &::before {
+      @extend %ic;
+      color: #000000;
+      font-size: rem(20);
+    }
+  }
+}
+.button-prev {
+  &::before {
+    content: "\e90e";
+  }
+}
+.button-next {
+  &::before {
+    content: "\e90f";
+  }
+}

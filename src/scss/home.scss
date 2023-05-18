@@ -93,3 +93,158 @@
 }
 
 //====================================================================================================
+
+.product-block {
+  @include adaptiveValue("padding-top", 100, 50);
+  @include adaptiveValue("padding-bottom", 70, 55);
+
+  &__container {
+  }
+
+  &__body {
+  }
+
+  &__top {
+    @include adaptiveValue("margin-bottom", 50, 20);
+  }
+
+  &__slider {
+    margin: 0 -15px 0 -10px;
+  }
+
+  &__wrapper {
+  }
+
+  &__slide {
+  }
+}
+
+.slider-product-block {
+  &__slide {
+  }
+  &__navigation {
+    margin-top: rem(35);
+    @media (min-width: $mobile) {
+      display: none;
+    }
+  }
+}
+
+.slide-product-block {
+  font-family: "Futura PT";
+  font-weight: 450;
+  color: #161616;
+
+  @media (any-hover: hover) {
+    &:hover {
+      .slide-product-block__button {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__image-ibg {
+    @include adaptiveValue("margin-bottom", 20, 10);
+    padding-bottom: 100%;
+  }
+
+  &__favorute {
+    position: absolute;
+    bottom: rem(10);
+    left: rem(10);
+    @include adaptiveValue("bottom", 10, 3);
+    @include adaptiveValue("left", 10, 3);
+    @include adaptiveValue("width", 35, 25);
+    @include adaptiveValue("height", 35, 25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease 0s;
+
+    &::before {
+      content: "\e908";
+      @extend %ic;
+      color: #000000;
+      @include adaptiveValue("font-size", 20, 14);
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &__labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 500;
+    @include adaptiveValue("font-size", 16, 13);
+    color: #ffffff;
+    display: flex;
+    column-gap: rem(5);
+  }
+
+  &__sale {
+    padding: rem(10) rem(12) rem(9);
+    background: #087065;
+
+    @media (max-width: $mobile) {
+      padding: rem(7) rem(9);
+    }
+  }
+
+  &__content {
+    margin-bottom: rem(10);
+  }
+
+  &__title {
+    @include adaptiveValue("font-size", 16, 14);
+    line-height: 131.3%; /* 21/16 */
+    &:not(:last-child) {
+      margin-bottom: rem(2);
+    }
+  }
+
+  &__material {
+    color: #aaaaaa;
+    @include adaptiveValue("font-size", 16, 14);
+  }
+
+  &__price {
+    display: flex;
+    column-gap: rem(6);
+    font-weight: 500;
+    @include adaptiveValue("font-size", 16, 14);
+
+    span {
+      font-weight: 450;
+      @include adaptiveValue("font-size", 14, 12);
+      line-height: 128.6%; /* 18/14 */
+      text-decoration-line: line-through;
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 10);
+    }
+  }
+
+  &__button {
+    min-width: rem(185);
+    column-gap: rem(15);
+
+    @media (any-hover: hover) {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    @media (max-width: $mobile) {
+      min-width: rem(90);
+      height: rem(41);
+      padding: rem(10) rem(14);
+    }
+  }
+}
+
+//========================================================================================================================================================

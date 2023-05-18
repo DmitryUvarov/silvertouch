@@ -1,5 +1,5 @@
 /*
-Документація по роботі у шаблоні: 
+Документація по роботі у шаблоні:
 Документація слайдера: https://swiperjs.com/
 Сніппет(HTML): swiper
 */
@@ -10,7 +10,7 @@
 import Swiper, { Navigation } from 'swiper';
 /*
 Основні модулі слайдера:
-Navigation, Pagination, Autoplay, 
+Navigation, Pagination, Autoplay,
 EffectFade, Lazy, Manipulation
 Детальніше дивись https://swiperjs.com/
 */
@@ -26,12 +26,8 @@ import "../../scss/base/swiper.scss";
 // Ініціалізація слайдерів
 function initSliders() {
 	// Список слайдерів
-	// Перевіряємо, чи є слайдер на сторінці
-	if (document.querySelector('.swiper')) { // Вказуємо склас потрібного слайдера
-		// Створюємо слайдер
-		new Swiper('.swiper', { // Вказуємо склас потрібного слайдера
-			// Підключаємо модулі слайдера
-			// для конкретного випадку
+	if (document.querySelector('.swiper')) {
+		new Swiper('.swiper', {
 			modules: [Navigation],
 			observer: true,
 			observeParents: true,
@@ -102,6 +98,48 @@ function initSliders() {
 			on: {
 
 			}
+		});
+	}
+
+	if (document.querySelector('.slider-product-block')) {
+		new Swiper('.slider-product-block', {
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 4,
+			spaceBetween: 40,
+			speed: 800,
+
+			// Кнопки "вліво/вправо"
+			navigation: {
+				prevEl: '.slider-product-block .button-prev',
+				nextEl: '.slider-product-block .button-next',
+			},
+
+			// Брейкпоінти
+			breakpoints: {
+				320: {
+					slidesPerView: 2,
+					spaceBetween: 10,
+				},
+				540: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				768: {
+					slidesPerView: 2.5,
+					spaceBetween: 20,
+				},
+				872: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1190: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+
 		});
 	}
 }
