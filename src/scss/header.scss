@@ -1,0 +1,497 @@
+//====================================================================================================
+
+.header {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    left: -100%;
+    top: 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: left 0.3s ease 0s;
+    z-index: 4;
+
+    .menu-open & {
+      left: 0;
+    }
+  }
+
+  &__container {
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: rem(10);
+    @include adaptiveValue("padding-top", 55, 20, 0, 1160, 991);
+    @include adaptiveValue("column-gap", 30, 25, 0, 1160, 767);
+
+    @media (max-width: $mobile) {
+      padding-bottom: rem(21);
+    }
+  }
+
+  &__logo {
+    z-index: 5;
+    @include adaptiveValue("max-width", 200, 128, 1, 767, 390);
+    @media (min-width: $mobile) {
+      flex: 0 1 percent(300, 1160);
+    }
+    @media (max-width: $mobile) {
+      position: absolute;
+      top: rem(26);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__search {
+    @media (min-width: $mobile) {
+      flex: 0 1 percent(500, 1160);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: rem(22);
+
+    @media (max-width: $mobile) {
+      margin-left: auto;
+      column-gap: rem(14);
+    }
+    @media (min-width: $mobile) {
+      flex: 0 1 percent(300, 1160);
+    }
+  }
+
+  &__link {
+    position: relative;
+    z-index: 5;
+    &::before {
+      @include adaptiveValue("font-size", 18, 14, 0, 1160, 767);
+      color: #000000;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: rem(-8);
+      left: rem(-8);
+      right: rem(-8);
+      bottom: rem(-8);
+      transition: all 0.3s ease 0s;
+
+      @media (max-width: $mobile) {
+        top: rem(-5);
+        left: rem(-5);
+        right: rem(-5);
+        bottom: rem(-5);
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    &_hide {
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
+
+    &_mob {
+      @media (min-width: $mobile) {
+        display: none;
+      }
+    }
+
+    &_cart {
+      &::before {
+        color: #087065;
+      }
+
+      span {
+        position: absolute;
+        width: rem(16);
+        height: rem(16);
+        top: rem(-8);
+        right: rem(-8);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(237, 28, 36, 0.5);
+        border-radius: 50%;
+        font-family: "Montserrat";
+        font-weight: 400;
+        @include adaptiveValue("font-size", 10, 8);
+        line-height: 120%; /* 12/10 */
+        color: #000000;
+
+        @media (max-width: $tablet) {
+          width: rem(14);
+          height: rem(14);
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    @media (min-width: $mobile) {
+      @include adaptiveValue("padding-top", 25, 15, 0, 1160, 991);
+      @include adaptiveValue("padding-bottom", 35, 15, 0, 1160, 991);
+    }
+  }
+
+  &__menu {
+  }
+
+  &__search-btn {
+    position: relative;
+    z-index: 5;
+    height: rem(24);
+    flex: 0 0 rem(24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: $mobile) {
+      display: none;
+    }
+
+    &::before {
+      font-size: rem(14);
+      color: #161616;
+    }
+  }
+}
+.menu {
+  &__icon {
+  }
+
+  &__body {
+    @media (max-width: $mobile) {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      background-color: #fff;
+      overflow: auto;
+      transition: left 0.3s ease 0s;
+      padding: rem(80) rem(15) rem(40);
+      z-index: 4;
+
+      .menu-open & {
+        left: 0;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: rem(42);
+    @include adaptiveValue("row-gap", 20, 10, 0, 1160, 991);
+    @include adaptiveValue("column-gap", 42, 20, 0, 1160, 991);
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: rem(5);
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    @media (min-width: $mobile) {
+      display: flex;
+      align-items: center;
+      column-gap: rem(6);
+    }
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        .menu__arrow {
+          transform: rotate(180deg);
+        }
+        .menu__sublist {
+          top: calc(100% + 5px);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: "Futura PT";
+    font-style: normal;
+    font-weight: 450;
+    line-height: 131.3%; /* 21/16 */
+    color: #161616;
+    padding: rem(5) rem(10);
+    display: block;
+
+    @media (max-width: $mobile) {
+      padding: rem(5) 0;
+      font-size: rem(18);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: rem(2);
+      left: rem(0);
+      bottom: rem(-3);
+      transition: all 0.3s ease 0s;
+      background-color: #000;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__arrow {
+    transition: all 0.3s ease 0s;
+    &::before {
+      font-size: rem(6);
+
+      @media (max-width: $mobile) {
+        font-size: rem(10);
+      }
+    }
+
+    @media (max-width: $mobile) {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      width: 25px;
+      height: 25px;
+    }
+
+    &._spoller-active {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__sublist {
+    @media (min-width: $mobile) {
+      min-width: rem(170);
+      position: absolute;
+      width: 100%;
+      top: calc(100% + 20px);
+      left: 0;
+      padding: rem(15) rem(10);
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: rem(5);
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease 0s;
+    }
+    @media (max-width: $mobile) {
+      padding-left: rem(10);
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: rem(5);
+      position: absolute;
+      top: rem(-2);
+      left: 0;
+      display: block;
+    }
+  }
+
+  &__subitem {
+  }
+
+  &__sublink {
+    position: relative;
+    display: inline-block;
+    padding: rem(5) 0;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: rem(2);
+      left: rem(0);
+      bottom: rem(-3);
+      transition: all 0.3s ease 0s;
+      background-color: #000;
+      opacity: 0;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  padding: rem(8);
+  border-bottom: 1px solid #aaaaaa;
+  column-gap: rem(15);
+
+  @media (max-width: $mobile) {
+    position: fixed;
+    top: rem(-65);
+    left: 0;
+    width: 100%;
+    z-index: 6;
+    padding: rem(20) rem(15);
+    background-color: #fff;
+    column-gap: rem(20);
+    height: rem(65);
+    transition: top 0.3s ease 0s;
+
+    .open-search & {
+      top: 0;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    font-family: "Futura PT";
+    font-weight: 450;
+    font-size: rem(14);
+    line-height: 128.6%; /* 18/14 */
+    color: #000;
+
+    &::placeholder {
+      color: #aaaaaa;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__btn {
+    position: relative;
+
+    &::before {
+      color: #161616;
+      @include adaptiveValue("font-size", 18, 16);
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: rem(-8);
+      left: rem(-8);
+      right: rem(-8);
+      bottom: rem(-8);
+      transition: all 0.3s ease 0s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    &_close {
+      @media (min-width: $mobile) {
+        display: none;
+      }
+    }
+  }
+}
+
+.bottom-header {
+}
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+  display: none;
+  @media (max-width: $mobile) {
+    display: block;
+    position: relative;
+    width: rem(24);
+    height: rem(16);
+    z-index: 5;
+    flex-shrink: 0;
+    @media (any-hover: none) {
+      cursor: default;
+    }
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: rem(1);
+      background-color: #000;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - rem(1));
+    }
+    .menu-open & {
+      span {
+        width: 0;
+      }
+      &::before,
+      &::after {
+      }
+      &::before {
+        top: calc(50% - rem(0.5));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        bottom: calc(50% - rem(0.5));
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
