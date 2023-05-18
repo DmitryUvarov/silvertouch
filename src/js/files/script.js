@@ -37,6 +37,9 @@ function pageLoad() {
             htmlTag.classList.toggle('open-search')
         }
 
+        if (targetElement.closest('.menu__arrow') && htmlTag.closest('.touch')) {
+            targetElement.closest('.menu__item').classList.toggle('open-sublist')
+        }
     })
 
 
