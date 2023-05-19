@@ -45,39 +45,43 @@
   }
 
   &__link {
-    font-family: "Futura PT";
-    font-weight: 450;
-    @include adaptiveValue("font-size", 16, 14);
-    line-height: 131.3%; /* 21/16 */
+  }
+}
+
+.link {
+  font-family: "Futura PT";
+  font-weight: 450;
+  @include adaptiveValue("font-size", 16, 14);
+  line-height: 131.3%; /* 21/16 */
+  color: #aaaaaa;
+  display: flex;
+  align-items: center;
+  column-gap: rem(10);
+  transition: all 0.3s ease 0s;
+
+  @media (max-width: $mobile) {
+    column-gap: rem(20);
+  }
+
+  &::after {
+    content: "\e901";
+    @extend %ic;
     color: #aaaaaa;
-    display: flex;
-    align-items: center;
-    column-gap: rem(10);
+    font-size: rem(11);
     transition: all 0.3s ease 0s;
+  }
 
-    @media (max-width: $mobile) {
-      column-gap: rem(20);
-    }
-
-    &::after {
-      content: "\e901";
-      @extend %ic;
-      color: #aaaaaa;
-      font-size: rem(11);
-      transition: all 0.3s ease 0s;
-    }
-
-    @media (any-hover: hover) {
-      &:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      color: #000;
+      &::after {
         color: #000;
-        &::after {
-          color: #000;
-          transform: translateX(5px);
-        }
+        transform: translateX(5px);
       }
     }
   }
 }
+
 .title {
   font-family: "Futura PT";
   font-weight: 450;

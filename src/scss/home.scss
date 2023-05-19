@@ -331,8 +331,6 @@
   }
 }
 
-//========================================================================================================================================================
-
 .banner-info {
   @include adaptiveValue("padding-top", 57, 30);
   @include adaptiveValue("padding-bottom", 56, 30);
@@ -395,3 +393,131 @@
 }
 
 //========================================================================================================================================================
+
+.press {
+  @include adaptiveValue("padding-top", 30, 5);
+  @include adaptiveValue("padding-bottom", 100, 80);
+  &__container {
+  }
+
+  &__body {
+  }
+
+  &__title {
+    @include adaptiveValue("margin-bottom", 50, 40);
+  }
+
+  &__items {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: rem(160);
+
+    @include adaptiveValue("column-gap", 160, 30, 0, 1190, 991);
+
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr;
+      row-gap: rem(120);
+    }
+  }
+
+  &__item {
+  }
+
+  &__decor {
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: percent(226, 1160);
+
+    @media (max-width: $mobile) {
+      width: percent(90, 360);
+    }
+
+    img {
+      animation-name: rotate;
+      animation-duration: 6s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      max-width: 100%;
+    }
+  }
+}
+
+.item-press {
+  &__image-ibg {
+    overflow: hidden;
+    padding-bottom: percent(433, 500);
+    display: block;
+    margin-bottom: rem(14);
+
+    img {
+      transition: all 0.3s ease 0s;
+      object-position: top;
+    }
+
+    @media (max-width: $mobile) {
+      padding-bottom: percent(234, 390);
+    }
+
+    @media (max-width: $mobileSmall) {
+      margin-right: rem(-15);
+      margin-left: rem(-15);
+      margin-bottom: rem(8);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        & > img {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    bottom: rem(30);
+    left: rem(30);
+
+    img {
+      position: relative;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: rem(15);
+  }
+
+  &__title {
+    font-weight: 450;
+    @include adaptiveValue("font-size", 18, 16);
+    line-height: 127.8%; /* 23/18 */
+    color: #161616;
+  }
+
+  &__link {
+    @media (max-width: $mobile) {
+      column-gap: rem(6);
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
