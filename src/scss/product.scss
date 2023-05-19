@@ -1,0 +1,50 @@
+.page-top {
+  position: relative;
+  &__container {
+  }
+
+  &__title {
+    padding: rem(80) 0;
+    text-align: center;
+    @include adaptiveValue("padding-top", 80, 40);
+    @include adaptiveValue("padding-bottom", 80, 54);
+  }
+
+  &__breadcrumbs {
+    margin-bottom: rem(40);
+  }
+
+  &__banner {
+    position: relative;
+    padding-bottom: percent(224, 1440);
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+
+  &__decor {
+    z-index: -1;
+    @include adaptiveValue("top", 15, 12);
+  }
+}
+
+.breadcrumbs {
+  &__list {
+  }
+
+  &__item {
+  }
+
+  &__link {
+  }
+
+  &__current {
+  }
+}

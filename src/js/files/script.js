@@ -11,7 +11,10 @@ function pageLoad() {
     const htmlTag = document.documentElement
 
     const menu = document.querySelector('.menu')
-    menu.addEventListener('mouseover', menuHover)
+    if (menu) {
+        menu.addEventListener('mouseover', menuHover)
+    }
+
 
     function menuHover(event) {
         if (event.target.closest('.menu__item') && event.target.closest('.menu__item').querySelector('.menu__sublist')) {
