@@ -525,11 +525,10 @@
   }
 
   &__top {
-    justify-content: flex-start;
     @include adaptiveValue("margin-bottom", 70, 50);
 
     @media (max-width: $mobile) {
-      column-gap: 25px;
+      justify-content: flex-start;
     }
 
     .title-block__title {
@@ -694,6 +693,14 @@
 
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 20, 10);
+    }
+
+    a {
+      @media (any-hover: hover) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     &_center {
