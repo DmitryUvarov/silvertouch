@@ -606,6 +606,7 @@
 //========================================================================================================================================================
 
 .social-block {
+  position: relative;
   @include adaptiveValue("padding-top", 60, 40);
   @include adaptiveValue("padding-bottom", 50, 40);
   &__container {
@@ -634,6 +635,11 @@
   }
 
   &__item {
+  }
+
+  &__decor {
+    top: rem(60);
+    z-index: -1;
   }
 }
 
