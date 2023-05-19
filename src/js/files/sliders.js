@@ -7,7 +7,7 @@
 // Підключаємо слайдер Swiper з node_modules
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
-import Swiper, { Navigation, Thumbs } from 'swiper';
+import Swiper, { Navigation, Thumbs, Pagination } from 'swiper';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay,
@@ -201,12 +201,17 @@ function initSliders() {
 		});
 
 		new Swiper('.product-slider', {
-			modules: [Thumbs],
+			modules: [Thumbs, Pagination],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 0,
 			speed: 800,
+
+			pagination: {
+				el: '.product-slider__pagination',
+				clickable: true,
+			},
 
 			thumbs: {
 				swiper: productTrumbSlider,
