@@ -208,7 +208,7 @@
     align-items: center;
     column-gap: rem(42);
     @include adaptiveValue("row-gap", 20, 10, 0, 1160, 991);
-    @include adaptiveValue("column-gap", 42, 20, 0, 1160, 991);
+    @include adaptiveValue("column-gap", 41, 20, 0, 1160, 991);
 
     @media (max-width: $mobile) {
       flex-direction: column;

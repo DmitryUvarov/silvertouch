@@ -109,7 +109,9 @@
   }
 
   &__slider {
-    margin: 0 -15px 0 -10px;
+    @media (max-width: $mobile) {
+      margin: 0 -15px 0 -10px;
+    }
   }
 
   &__wrapper {
