@@ -11,12 +11,19 @@
   }
 
   &__breadcrumbs {
-    margin-bottom: rem(40);
+    padding-bottom: rem(40);
   }
 
   &__banner {
     position: relative;
     padding-bottom: percent(224, 1440);
+
+    @media (max-width: $tablet) {
+      padding-bottom: 23%;
+    }
+    @media (max-width: $mobile) {
+      display: none;
+    }
 
     img {
       position: absolute;

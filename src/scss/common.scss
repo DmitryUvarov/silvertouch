@@ -154,7 +154,7 @@
   &__item {
     font-family: "Futura PT";
     font-weight: 450;
-    font-size: rem(16);
+    @include adaptiveValue("font-size", 16, 14);
     line-height: 131.3%; /* 21/16 */
     color: #aaaaaa;
   }
