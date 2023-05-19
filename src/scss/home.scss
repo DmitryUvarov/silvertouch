@@ -607,8 +607,8 @@
 //========================================================================================================================================================
 
 .social-block {
-  @include adaptiveValue("padding-top", 60, 30);
-  @include adaptiveValue("padding-bottom", 50, 50);
+  @include adaptiveValue("padding-top", 60, 40);
+  @include adaptiveValue("padding-bottom", 50, 40);
   &__container {
   }
 
