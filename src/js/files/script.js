@@ -46,4 +46,24 @@ function pageLoad() {
     })
 
 
+    const productTabs = document.querySelector('.product__tabs')
+
+    function handleScreenWidthChange(mql) {
+        if (productTabs) {
+            if (mql.matches) {
+                productTabs.setAttribute('data-tabs-animate', 500)
+                document.querySelector('[data-tabs-button-one]').click()
+            } else {
+                productTabs.setAttribute('data-tabs-animate', 1)
+                document.querySelector('[data-tabs-button-two]').click()
+            }
+        }
+
+      }
+
+      const mql = window.matchMedia("(max-width: 1020px)");
+      mql.addListener(handleScreenWidthChange);
+
+      handleScreenWidthChange(mql);
+
 }
