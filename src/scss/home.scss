@@ -250,3 +250,52 @@
 }
 
 //========================================================================================================================================================
+
+.banner {
+  position: relative;
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: rem(30);
+  }
+
+  &__title {
+    font-weight: 450;
+    @include adaptiveValue("font-size", 26, 14);
+    line-height: 126.9%; /* 33/26 */
+    color: #161616;
+
+    @media (max-width: $mobile) {
+      font-weight: 500;
+    }
+  }
+
+  &__button {
+    @media (max-width: $mobile) {
+      height: rem(41);
+      min-width: rem(150);
+      font-size: rem(14);
+      padding: rem(10) rem(14);
+    }
+  }
+
+  &__decor {
+    position: relative;
+  }
+}
+
+//========================================================================================================================================================
