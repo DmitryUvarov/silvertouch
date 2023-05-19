@@ -513,6 +513,99 @@
 
 //========================================================================================================================================================
 
+.reviews {
+  background: rgba(8, 112, 101, 0.1);
+  @include adaptiveValue("padding-top", 60, 30);
+  @include adaptiveValue("padding-bottom", 60, 50);
+  &__container {
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__top {
+    justify-content: flex-start;
+    @include adaptiveValue("margin-bottom", 70, 50);
+
+    @media (max-width: $mobile) {
+      column-gap: 25px;
+    }
+
+    .title-block__title {
+      &::after {
+        @media (max-width: $mobile) {
+          display: block;
+          right: rem(-12);
+        }
+      }
+    }
+    .title-block__link {
+      @media (max-width: $mobile) {
+        column-gap: rem(6);
+      }
+    }
+  }
+
+  &__slider {
+  }
+
+  &__navigation {
+    @media (min-width: $pc) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    @media (min-width: $mobile) {
+      .navigation__arrow {
+        &::before {
+          font-size: rem(30);
+        }
+      }
+    }
+
+    @media (max-width: $pc) {
+      margin-top: rem(30);
+    }
+  }
+}
+
+.slider-reviews {
+  max-width: rem(1060);
+  margin: 0 auto;
+
+  @media (max-width: $mobile) {
+    margin: 0 rem(-22);
+  }
+
+  &__wrapper {
+  }
+
+  &__slide {
+    transition: all 0.3s ease 0s;
+    @media (max-width: $mobile) {
+      &:not(.swiper-slide-active) {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+.slide-reviews {
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: 100%;
+  }
+}
+
+//========================================================================================================================================================
+
 @keyframes rotate {
   from {
     transform: rotate(360deg);

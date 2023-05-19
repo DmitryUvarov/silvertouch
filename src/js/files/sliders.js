@@ -26,8 +26,8 @@ import "../../scss/base/swiper.scss";
 // Ініціалізація слайдерів
 function initSliders() {
 	// Список слайдерів
-	if (document.querySelector('.swiper')) {
-		new Swiper('.swiper', {
+	if (document.querySelector('.swiper123')) {
+		new Swiper('.swiper123', {
 			modules: [Navigation],
 			observer: true,
 			observeParents: true,
@@ -142,6 +142,54 @@ function initSliders() {
 
 		});
 	}
+
+	if (document.querySelector('.slider-reviews')) {
+		const reviewsSlider = new Swiper('.slider-reviews', {
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			speed: 800,
+			loop: true,
+
+			// Кнопки "вліво/вправо"
+			navigation: {
+				prevEl: '.slider-reviews .button-prev',
+				nextEl: '.slider-reviews .button-next',
+			},
+
+			// Брейкпоінти
+			breakpoints: {
+				320: {
+					slidesPerView: 3,
+					spaceBetween: 10,
+					centeredSlides: true,
+				},
+				540: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+					centeredSlides: true,
+				},
+				767: {
+					slidesPerView: 4,
+					spaceBetween: 20,
+					centeredSlides: false,
+				},
+				1190: {
+					slidesPerView: 4,
+					spaceBetween: 20,
+					centeredSlides: false,
+				},
+			},
+		});
+		document.addEventListener('click', e => {
+			if (e.target.closest('.reviews .title-block__link')) {
+				reviewsSlider.slideNext(800)
+			}
+		})
+	}
+
+
+
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
 function initSlidersScroll() {
