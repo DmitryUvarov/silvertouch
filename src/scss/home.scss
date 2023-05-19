@@ -722,6 +722,123 @@
 
 //========================================================================================================================================================
 
+.subscribe {
+  padding-top: rem(40);
+  @include adaptiveValue("padding-bottom", 100, 80);
+  &__container {
+    max-width: rem(955);
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: percent(500, 925) auto;
+    @include adaptiveValue("column-gap", 95, 30, 0, 1190, 767);
+    row-gap: rem(20);
+    align-items: center;
+
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: rem(10);
+    }
+  }
+
+  &__title {
+    font-family: "Montserrat";
+    font-weight: 600;
+    @include adaptiveValue("font-size", 52, 37);
+    line-height: 121.2%; /* 63/52 */
+    color: #161616;
+
+    @media (min-width: $mobile) {
+      align-self: end;
+    }
+  }
+
+  &__image {
+    @media (min-width: $mobile) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+    @media (max-width: $mobile) {
+      margin-bottom: rem(10);
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__form {
+    @media (min-width: $mobile) {
+      align-self: flex-start;
+    }
+  }
+}
+.form-subscribe {
+  &__text {
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 131.3%; /* 21/16 */
+    color: #000000;
+    @include adaptiveValue("margin-bottom", 30, 20);
+
+    @media (max-width: $mobile) {
+      font-size: rem(19);
+    }
+  }
+
+  &__line {
+    padding: rem(8) rem(8) rem(8) rem(10);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000000;
+  }
+
+  &__input {
+    width: 100%;
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 131.3%; /* 21/16 */
+    color: #000;
+
+    &::placeholder {
+      color: #aaaaaa;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    position: relative;
+    &::before {
+      color: #087065;
+      font-size: rem(30);
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: rem(-8);
+      left: rem(-8);
+      right: rem(-8);
+      bottom: rem(-8);
+      transition: all 0.3s ease 0s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}
+
 //========================================================================================================================================================
 
 @keyframes rotate {
