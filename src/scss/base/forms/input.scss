@@ -15,10 +15,11 @@ textarea {
   display: block;
 
   font-weight: 500;
-  font-size: 16px;
+  @include adaptiveValue("font-size", 16, 14);
   line-height: 131.3%; /* 21/16 */
   color: #000;
-  padding: rem(0) rem(30);
+  @include adaptiveValue("padding-right", 30, 14);
+  @include adaptiveValue("padding-left", 30, 14);
   border: 1px solid #aaaaaa;
   height: rem(57);
 
@@ -60,5 +61,6 @@ textarea.input {
 
 .textarea {
   min-height: rem(120);
-  padding: rem(20) rem(30);
+  @include adaptiveValue("padding-top", 20, 14);
+  @include adaptiveValue("padding-bottom", 20, 14);
 }

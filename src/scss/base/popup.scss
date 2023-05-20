@@ -50,7 +50,7 @@ body::after {
   visibility: hidden;
   transform: scale(0);
   transition: transform 0.3s ease 0s;
-  background-color: #eee;
+  background-color: #ffffff;
   @include adaptiveValue("padding-top", 60, 25, 0, 991, 767);
   @include adaptiveValue("padding-bottom", 60, 25, 0, 991, 767);
   @include adaptiveValue("padding-left", 60, 15, 0, 991, 767);
@@ -58,9 +58,6 @@ body::after {
   width: 100%;
   max-width: 815px;
 
-  @media (min-width: $tablet) {
-    min-height: 688px;
-  }
   .lock & {
     visibility: visible;
   }
@@ -68,6 +65,8 @@ body::after {
 
 .popup__close {
   position: relative;
+  height: max-content;
+
   &::before {
     content: "\e904";
     @extend %ic;
@@ -143,6 +142,9 @@ body::after {
       max-width: none;
       width: 100%;
       min-height: 100vh;
+    }
+    @media (min-width: $tablet) {
+      min-height: 688px;
     }
   }
 }
@@ -417,5 +419,109 @@ body::after {
     &::after {
       display: none;
     }
+  }
+}
+
+//========================================================================================================================================================
+
+.stretch {
+  @media (max-width: $mobile) {
+    padding: 0;
+  }
+  &__top {
+  }
+
+  .popup__content {
+    @media (max-width: $mobile) {
+      max-width: none;
+      width: 100%;
+      min-height: 100vh;
+    }
+  }
+}
+.popup-top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(20);
+
+  @media (max-width: $mobile) {
+    align-items: center;
+    justify-content: center;
+  }
+  &__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "\e90e";
+      @extend %ic;
+      font-size: rem(20);
+      color: #000000;
+    }
+
+    @media (min-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-weight: 450;
+    @include adaptiveValue("font-size", 26, 20);
+    line-height: 126.9%; /* 33/26 */
+    color: #000000;
+  }
+
+  &__close {
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+}
+.stretch-form {
+  &__line {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 20);
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 126.9%; /* 33/26 */
+    color: #000000;
+    margin-bottom: rem(17);
+  }
+
+  &__input {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 8, 6);
+    }
+  }
+
+  &__button {
+    @include adaptiveValue("height", 57, 54);
+    width: 100%;
+    justify-content: center;
+    &::after {
+      display: none;
+    }
+  }
+
+  &__next {
+    display: block;
+    @include adaptiveValue("font-size", 18, 14);
+    line-height: 127.8%; /* 23/18 */
+    text-decoration-line: underline;
+    color: #161616;
+    margin-top: rem(10);
+    margin-right: auto;
+    margin-left: auto;
   }
 }
