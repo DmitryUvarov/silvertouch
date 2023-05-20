@@ -4,31 +4,61 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
-.input {
-	border-radius: 0 !important;
-	width: 100%;
-	display: block;
-	padding: 0px 20px;
-	border: 1px solid #eee;
-	&._form-focus {
-	}
-	&._form-error {
-	}
+.input,
+.textarea {
+  border-radius: 0 !important;
+  width: 100%;
+  display: block;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 131.3%; /* 21/16 */
+  color: #000;
+  padding: rem(0) rem(30);
+  border: 1px solid #aaaaaa;
+  height: rem(57);
+
+  @media (max-width: $mobile) {
+    height: rem(45);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #000;
+  }
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.77);
+  }
+
+  &._form-focus {
+  }
+  &._form-error {
+  }
+
+  &_2 {
+    border-radius: 5px !important;
+    height: rem(49);
+  }
 }
 .input[placeholder]:not([data-placeholder-nohiden]) {
-	&::placeholder {
-		transition: opacity 0.3s;
-	}
-	&:focus::placeholder {
-		opacity: 0;
-	}
+  &::placeholder {
+    transition: opacity 0.3s;
+  }
+  &:focus::placeholder {
+    opacity: 0;
+  }
 }
 
 textarea.input {
-	resize: none;
-	padding: 0px 0px;
+  resize: none;
+  padding: 0px 0px;
+}
+
+.textarea {
+  min-height: rem(120);
+  padding: rem(20) rem(30);
 }

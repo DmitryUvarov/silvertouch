@@ -90,12 +90,28 @@ function pageLoad() {
     ////////////////////////////////////////////////
 
 
-    if (targetElement.closest('[data-filter-btn]')) {
-        htmlTag.classList.toggle('filter-open')
-    }
-    if (targetElement.closest('[data-filter-close-btn]') && htmlTag.closest('.filter-open')) {
-        htmlTag.classList.remove('filter-open')
-    }
+        if (targetElement.closest('[data-filter-btn]')) {
+            htmlTag.classList.toggle('filter-open')
+        }
+        if (targetElement.closest('[data-filter-close-btn]') && htmlTag.closest('.filter-open')) {
+            htmlTag.classList.remove('filter-open')
+        }
+
+        if (targetElement.closest('.order-form__checkbox')) {
+            const inp = targetElement.closest('.order-form__checkbox').querySelector('input')
+            inp.checked = true
+        }
+
+
+    ////////////////////////////////////////////////
+
+
+        if (targetElement.closest('[data-comment-button]')) {
+            const dataComment = targetElement.closest('[data-comment]')
+            const dataCommentTextarea = dataComment.querySelector('[data-comment-textarea]')
+            if (dataCommentTextarea.value.length > 0) dataCommentTextarea.value = ''
+            dataComment.classList.toggle('active')
+        }
 
     })
 

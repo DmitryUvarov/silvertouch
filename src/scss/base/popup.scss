@@ -97,16 +97,6 @@ body::after {
 
 //========================================================================================================================================================
 
-.popup {
-  &__wrapper {
-  }
-
-  &__content {
-  }
-
-  &__close {
-  }
-}
 .cart {
   @media (max-width: $mobile) {
     padding: 0;
@@ -156,6 +146,7 @@ body::after {
     }
   }
 }
+
 .top-cart {
   display: flex;
   align-items: center;
@@ -172,16 +163,19 @@ body::after {
   &__close {
   }
 }
+
 .list-cart {
   @include adaptiveValue("padding-bottom", 30, 20);
-  @include adaptiveValue("margin-bottom", 30, 14);
+
   @media (max-width: $mobile) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    @include adaptiveValue("margin-bottom", 30, 14);
   }
 
   &__item {
   }
 }
+
 .item-cart {
   position: relative;
   display: flex;
