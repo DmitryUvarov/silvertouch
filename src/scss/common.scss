@@ -224,3 +224,117 @@
   &__current {
   }
 }
+
+//========================================================================================================================================================
+
+.items-product {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(260), 1fr));
+
+  row-gap: rem(40);
+  @include adaptiveValue("column-gap", 40, 10);
+  @include adaptiveValue("padding-top", 40, 0);
+  @include adaptiveValue("padding-bottom", 80, 50);
+
+  @media (max-width: $mobile) {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 rem(-15);
+  }
+}
+
+//========================================================================================================================================================
+
+.ciclet {
+  &__pagination {
+  }
+  &__more {
+  }
+}
+
+.nav-block {
+  padding-bottom: rem(30);
+  &__more {
+    @include adaptiveValue("margin-bottom", 20, 30);
+  }
+  &__pagination {
+  }
+}
+
+.pagination-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: rem(10);
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 131.3%; /* 21/16 */
+    text-align: center;
+    color: #aaaaaa;
+
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(8, 112, 101, 0.3);
+    border-radius: 50%;
+    transition: all 0.3s ease 0s;
+
+    &_next {
+      &::before {
+        content: "\e901";
+        @extend %ic;
+      }
+    }
+    &_prev {
+      &::before {
+        content: "\e901";
+        @extend %ic;
+        transform: scale(-1);
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &:not(span) {
+          color: #000000;
+          background: rgba(8, 112, 101, 0.3);
+        }
+      }
+    }
+
+    &.active {
+      color: #000000;
+      background: rgba(8, 112, 101, 0.3);
+    }
+  }
+}
+
+.more {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  column-gap: rem(20);
+  font-weight: 450;
+  @include adaptiveValue("font-size", 26, 20);
+  line-height: 126.9%; /* 33/26 */
+  color: #000000;
+
+  &::before {
+    content: "\e90b";
+    @extend %ic;
+    @include adaptiveValue("font-size", 33, 20);
+    transition: all 0.3s ease 0s;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      &::before {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}

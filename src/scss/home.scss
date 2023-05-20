@@ -156,18 +156,6 @@
     display: block;
     @include adaptiveValue("margin-bottom", 20, 10);
     padding-bottom: 100%;
-
-    img {
-      transition: all 0.3s ease 0s;
-    }
-
-    @media (any-hover: hover) {
-      &:hover {
-        img {
-          transform: scale(1.03);
-        }
-      }
-    }
   }
 
   &__favorute {
@@ -279,6 +267,23 @@
       height: rem(41);
       padding: rem(10) rem(14);
     }
+  }
+}
+
+.image-product-block {
+  position: relative;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  @media (min-width: $mobile) {
+    display: none;
   }
 }
 
