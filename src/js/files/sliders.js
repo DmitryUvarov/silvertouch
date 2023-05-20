@@ -219,6 +219,48 @@ function initSliders() {
 		});
 	}
 
+	for (const mobileSlider of document.querySelectorAll('.images-set-product')) {
+        if (mobileSlider) {
+            (function () {
+                "use strict";
+
+                const breakpoint = window.matchMedia("(min-width:768px)");
+                let slider;
+
+                const enableSwiper = function () {
+                    slider = new Swiper(mobileSlider, {
+                        modules: [Thumbs, Pagination],
+						observer: true,
+						observeParents: true,
+						slidesPerView: 1,
+						spaceBetween: 0,
+						speed: 800,
+
+						pagination: {
+							el: '.images-set-product__pagination',
+							clickable: true,
+						},
+
+                    });
+                };
+				console.log(mobileSlider)
+                const breakpointChecker = function () {
+                    if (breakpoint.matches === true) {
+                        if (slider !== undefined) slider.destroy(true, true);
+
+                        return;
+                    } else if (breakpoint.matches === false) {
+                        return enableSwiper();
+                    }
+                };
+
+                breakpoint.addListener(breakpointChecker);
+                breakpointChecker();
+            })();
+        }
+
+    }
+
 
 
 

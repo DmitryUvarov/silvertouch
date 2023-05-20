@@ -1,92 +1,96 @@
-// Базові стилі спойлерів
-// Сніппет (HTML): spoller
-
-// Блок зі спойлерами
 .spollers {
-	display: grid;
-	gap: 15px;
+  &__item {
+  }
+
+  &__title {
+    position: relative;
+    display: block;
+    font-weight: 500;
+    @include adaptiveValue("font-size", 16, 14);
+    line-height: 131.3%; /* 21/16 */
+    color: #161616;
+
+    margin-bottom: rem(0);
+    padding: rem(20) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    width: 100%;
+    text-align: start;
+    &:first-child {
+      border-top: 1px solid rgba(0, 0, 0, 0.25);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      background-color: #000;
+      width: rem(14);
+      height: 1px;
+      position: absolute;
+      top: 28px;
+      right: 0;
+      transition: all 0.3s ease 0s;
+    }
+    &::before {
+    }
+    &::after {
+      transform: rotate(-90deg);
+    }
+
+    &._spoller-active {
+      &::after {
+        transform: rotate(0);
+      }
+      &::before,
+      &::after {
+        background: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+
+  &__body {
+    @include adaptiveValue("padding-top", 20, 10);
+    @include adaptiveValue("padding-bottom", 20, 10);
+  }
 }
-// Спойлер
-.spollers__item {
-	font-size: rem(20);
-}
-// Заголовок спойлера
-.spollers__title {
-	width: 100%;
-	cursor: default;
-	text-align: left;
-	border: 1px solid #eee;
-	padding: rem(10) rem(15);
-	border-radius: rem(5);
-	position: relative;
-	list-style: none;
-	&::marker {
-	}
-	._spoller-init & {
-		cursor: pointer;
-		&::before,
-		&::after {
-			content: "";
-			position: absolute;
-			right: 10px;
-			top: 50%;
-			background-color: #000;
-			height: 2px;
-			width: 15px;
-			transition: transform 0.5s ease 0s;
-		}
-		&::before {
-			transform: translate(-75%, -50%) rotate(40deg);
-		}
-		&::after {
-			transform: translate(0, -50%) rotate(-40deg);
-		}
-		&._spoller-active {
-			&::before {
-				transform: translateX(-75%) rotate(-40deg);
-			}
-			&::after {
-				transform: rotate(40deg);
-			}
-		}
-		/*
-		._spoller-init & {
-			position: relative;
-			width: 100%;
-			text-align: left;
-			&::before,
-			&::after {
-				content: "";
-				position: absolute;
-				right: 0;
-				top: rem(12);
-				height: rem(1);
-				transition: all 0.3s ease 0s;
-				width: rem(10);
-				background-color: #000;
-			}
-			&::before {
-				transform: rotate(40deg);
-				right: rem(7);
-			}
-			&::after {
-				transform: rotate(-40deg);
-			}
-		}
-		&._spoller-active {
-			&::before {
-				transform: rotate(-40deg);
-			}
-			&::after {
-				transform: rotate(40deg);
-			}
-		}
-		*/
-	}
-}
-// Контент спойлера
-.spollers__body {
-	padding: rem(20);
-	border-radius: rem(5);
-	border: 1px solid #eee;
+.body-spollers {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000000;
+  &__title {
+  }
+
+  &__list {
+    counter-reset: numbers;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: rem(5);
+
+    &::before {
+      counter-increment: numbers;
+      content: counter(numbers) ".";
+    }
+  }
+
+  &__sublist {
+  }
+
+  &__subitem {
+    position: relative;
+    padding-left: rem(40);
+
+    &::before {
+      content: "";
+      width: rem(5);
+      height: rem(5);
+      display: block;
+      position: absolute;
+      left: 25px;
+      top: 9px;
+      background-color: #000;
+      border-radius: 50%;
+    }
+  }
 }

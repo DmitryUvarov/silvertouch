@@ -100,6 +100,7 @@ function pageLoad() {
     })
 
 
+    const productPage = document.querySelector('.product')
     const productTabs = document.querySelector('.product__tabs')
 
     function handleScreenWidthChange(mql) {
@@ -116,8 +117,11 @@ function pageLoad() {
       }
 
       const mql = window.matchMedia("(max-width: 1020px)");
-      mql.addListener(handleScreenWidthChange);
+      if (productPage) {
+        mql.addListener(handleScreenWidthChange);
 
-      handleScreenWidthChange(mql);
+        handleScreenWidthChange(mql);
+      }
+
 
 }
