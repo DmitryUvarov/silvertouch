@@ -1,10 +1,85 @@
-<div id="popup" aria-hidden="true" class="popup">
+<div id="cart" aria-hidden="true" class="popup cart">
 	<div class="popup__wrapper">
 		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрити</button>
-			<div class="popup__text">
-				Text
+
+
+			<div class="cart__top top-cart">
+				<div class="top-cart__title">КОШИК</div>
+				<button data-close type="button" class="popup__close"></button>
 			</div>
+
+			<div class="cart__list list-cart">
+				<div class="list-cart__item item-cart">
+					<a href="#" class="item-cart__image-ibg">
+						<img src="@img/cart/01.jpg" alt="">
+					</a>
+					<div class="item-cart__body">
+						<div class="item-cart__content">
+							<div class="item-cart__title">Сережки “Twinkle” </div>
+							<div class="item-cart__material">
+								<span>Сережки</span>
+								<span>Знижки</span>
+							</div>
+						</div>
+						<div class="item-cart__line">
+							<div class="item-cart__old-price">990 грн</div>
+							<div class="item-cart__price">
+								<span>1 х 900 грн</span>
+								<div class="item-cart__sale">Знижка 10%</div>
+							</div>
+						</div>
+					</div>
+					<button class="item-cart__delete _icon-delete"></button>
+				</div>
+
+				<div class="list-cart__item item-cart">
+					<a href="#" class="item-cart__image-ibg">
+						<img src="@img/cart/01.jpg" alt="">
+					</a>
+					<div class="item-cart__body">
+						<div class="item-cart__content">
+							<div class="item-cart__title">Сережки “Twinkle” </div>
+							<div class="item-cart__material">
+								<span>Сережки</span>
+								<span>Знижки</span>
+							</div>
+						</div>
+						<div class="item-cart__line">
+							<div class="item-cart__old-price">990 грн</div>
+							<div class="item-cart__price">
+								<span>1 х 900 грн</span>
+								<div class="item-cart__sale">Знижка 10%</div>
+							</div>
+						</div>
+					</div>
+					<button class="item-cart__delete _icon-delete"></button>
+				</div>
+			</div>
+
+			<div class="cart__content">
+				<div class="cart__free free-cart">
+					<div class="free-cart__top">
+						<div class="free-cart__content">
+							<div class="free-cart__title">До безкоштовної доставки залишилося</div>
+							<div class="free-cart__price">600 грн.</div>
+						</div>
+					</div>
+					<a href="#" class="free-cart__link link">Перейти в каталог</a>
+					<div class="free-cart__progress"><span style="width: 70%;"></span></div>
+				</div>
+				<div class="cart__order order-cart">
+					<div class="order-cart__items">
+						<div class="order-cart__title">Cума без знижки:</div>
+						<span class="order-cart__title">990 грн</span>
+						<div class="order-cart__title">Знижка:</div>
+						<span class="order-cart__title">90 грн</span>
+						<div class="order-cart__title">Разом:</div>
+						<span class="order-cart__title order-cart__title_b">900 грн</span>
+					</div>
+					<a href="#" class="order-cart__link button">ОФОРМИТИ ЗАМОВЛЕННЯ</a>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
