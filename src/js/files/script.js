@@ -10,6 +10,9 @@ function pageLoad() {
 
     const htmlTag = document.documentElement
 
+
+    ////////////////////////////////////////////////
+
     const menu = document.querySelector('.menu')
     if (menu) {
         menu.addEventListener('mouseover', menuHover)
@@ -29,6 +32,29 @@ function pageLoad() {
         }
     }
 
+    ////////////////////////////////////////////////
+
+    const filter = document.querySelector('.filter')
+    if (filter) {
+        filter.addEventListener('mouseover', filterHover)
+    }
+
+
+    function filterHover(event) {
+        if (event.target.closest('.item-filter') && event.target.closest('.item-filter').querySelector('.item-filter__list')) {
+            const menuItem = event.target.closest('.item-filter')
+            const cordsMenuItem = menuItem.getBoundingClientRect()
+
+            if ((htmlTag.clientWidth - cordsMenuItem.right) > 180) {
+                menuItem.querySelector('.item-filter__list').style.cssText = 'left: 0; right: auto;'
+            } else {
+                menuItem.querySelector('.item-filter__list').style.cssText = 'right: 0; left: auto;'
+            }
+        }
+    }
+
+    ////////////////////////////////////////////////
+
 
     document.addEventListener('click', event => {
         const targetElement = event.target
@@ -42,7 +68,35 @@ function pageLoad() {
 
         if (targetElement.closest('.menu__arrow') && htmlTag.closest('.touch')) {
             targetElement.closest('.menu__item').classList.toggle('open-sublist')
+        } else if (!targetElement.closest('.menu__item') && document.querySelector('.menu__item.open-sublist')) {
+            document.querySelector('.menu__item.open-sublist').classList.remove('open-sublist')
         }
+
+
+    ////////////////////////////////////////////////
+
+        if (targetElement.closest('.item-filter__title') && htmlTag.closest('.touch')) {
+
+            if (document.querySelector('.item-filter.open-filter-list')) {
+                document.querySelector('.item-filter.open-filter-list').classList.remove('open-filter-list')
+            }
+
+            targetElement.closest('.item-filter').classList.toggle('open-filter-list')
+        } else if (!targetElement.closest('.item-filter') && document.querySelector('.item-filter.open-filter-list')) {
+            document.querySelector('.item-filter.open-filter-list').classList.remove('open-filter-list')
+        }
+
+
+    ////////////////////////////////////////////////
+
+
+    if (targetElement.closest('[data-filter-btn]')) {
+        htmlTag.classList.toggle('filter-open')
+    }
+    if (targetElement.closest('[data-filter-close-btn]') && htmlTag.closest('.filter-open')) {
+        htmlTag.classList.remove('filter-open')
+    }
+
     })
 
 
