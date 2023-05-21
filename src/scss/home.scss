@@ -141,6 +141,8 @@
   font-family: "Futura PT";
   font-weight: 450;
   color: #161616;
+  display: flex;
+  flex-direction: column;
 
   @media (any-hover: hover) {
     &:hover {
@@ -151,11 +153,20 @@
     }
   }
 
+  @media (max-width: $mobile) {
+    padding: 0 rem(10);
+  }
+
   &__image-ibg {
     overflow: hidden;
     display: block;
     @include adaptiveValue("margin-bottom", 20, 10);
     padding-bottom: 100%;
+
+    @media (max-width: $mobile) {
+      margin-right: rem(-10);
+      margin-left: rem(-10);
+    }
   }
 
   &__favorute {
@@ -206,6 +217,7 @@
 
   &__content {
     margin-bottom: rem(10);
+    flex: 1 1 auto;
   }
 
   &__title {
